@@ -1,0 +1,103 @@
+classDiagram
+    class User {
+        +UUID id
+        +string name
+        +string email
+        +string passwordHash
+        +UserRole role
+        +register()
+        +login()
+        +updateProfile()
+    }
+    class Product {
+        +UUID id
+        +string name
+        +Money price
+        +string description
+        +int stock
+        +UUID categoryId
+        +adjustStock(qty)
+        +applyDiscount(pct)
+    }
+    class Category {
+        +UUID id
+        +string name
+        +UUID? parentCategoryId
+        +addSubCategory()
+        +listProducts()
+    }
+    class Order {
+        +UUID id
+        +UUID userId
+        +OrderStatus status
+        +Date createdAt
+        +Money total
+        +addItem(item)
+        +removeItem(item)
+        +checkout()
+    }
+    class OrderItem {
+        +UUID id
+        +UUID orderId
+        +UUID productId
+        +int quantity
+        +Money unitPrice
+        +calculateSubtotal()
+    }
+    class ShoppingCart {
+        +UUID id
+        +UUID userId
+        +addProduct(product, qty)
+        +removeProduct(product)
+        +clear()
+    }
+    class CartItem {
+        +UUID productId
+        +int quantity
+    }
+    class Payment {
+        +UUID id
+        +UUID orderId
+        +PaymentMethod method
+        +PaymentStatus status
+        +string transactionId
+        +process()
+        +refund()
+    }
+    class ShippingAddress {
+        +UUID id
+        +UUID orderId
+        +string street
+        +string city
+        +string postalCode
+        +string country
+        +validate()
+    }
+    class Review {
+        +UUID id
+        +UUID userId
+        +UUID productId
+        +int rating
+        +string comment
+        +Date createdAt
+        +publish()
+        +moderate()
+    }
+    class Inventory {
+        +UUID productId
+        +int available
+        +reserve(qty)
+        +release(qty)
+    }
+    User "1" --> "*" Order : creates
+    User "1" --> "*" Review : writes
+    User "1" --> "1" ShoppingCart : owns
+    ShoppingCart "1" --> "*" CartItem : contains
+    CartItem "*" --> "1" Product : references
+    Order "1" --> "*" OrderItem : contains
+    OrderItem "*" --> "1" Product : references
+    Order "1" --> "1" Payment : uses
+    Order "1" --> "1" ShippingAddress : ships to
+    Product "*" --> "1" Category : belongs to
+    Review "*" --> "1" Product : reviews
+    Inventory "1" --> "1" Product : manages

@@ -1,0 +1,18 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer.astro';
+import CheckoutForm from '../components/CheckoutForm';
+---
+
+<MainLayout title="Finalizar Compra">
+  <Navbar client:load slot="header" />
+
+  <section class="pt-32 pb-24 min-h-screen bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CheckoutForm client:load />
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</MainLayout>

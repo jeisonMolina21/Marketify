@@ -1,0 +1,72 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer.astro';
+import ProductCard from '../components/ProductCard';
+import FilterSidebar from '../components/FilterSidebar';
+import { LayoutGrid, List, ChevronDown } from 'lucide-react';
+
+const products = [
+  { id: '1', name: 'Reloj Chronos Luxury Edition', price: 1250000, image: '/images/watch.png', category: 'Accesorios', rating: 5, reviews: 124 },
+  { id: '2', name: 'Audífonos Sonic Max Wireless', price: 850000, image: '/images/headphones.png', category: 'Tecnología', rating: 4, reviews: 89 },
+  { id: '3', name: 'Gafas de Sol Polaris Black', price: 450000, image: 'https://images.unsplash.com/photo-1511499767390-a7335958beba?q=80&w=2000&auto=format&fit=crop', category: 'Moda', rating: 5, reviews: 45 },
+  { id: '4', name: 'Mochila Urbana Tech Pro', price: 320000, image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=2000&auto=format&fit=crop', category: 'Estilo de Vida', rating: 4, reviews: 67 },
+  { id: '5', name: 'Smartwatch V-Pro Series', price: 650000, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=2000&auto=format&fit=crop', category: 'Tecnología', rating: 5, reviews: 12 },
+  { id: '6', name: 'Zapatos Craft Leather', price: 280000, image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2000&auto=format&fit=crop', category: 'Moda', rating: 4, reviews: 56 },
+];
+---
+
+<MainLayout title="Catálogo de Productos">
+  <Navbar client:load slot="header" />
+
+  <section class="pt-32 pb-24 min-h-screen bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <h1 class="text-5xl font-black text-slate-900 tracking-tight mb-4">Catálogo</h1>
+          <p class="text-slate-500 font-medium">Explora {products.length} productos premium disponibles hoy.</p>
+        </div>
+        
+        <div class="flex items-center gap-4">
+          <div class="flex items-center bg-white border border-slate-200 rounded-xl p-1">
+            <button class="p-2 rounded-lg bg-slate-50 text-emerald-600"><LayoutGrid class="w-5 h-5" /></button>
+            <button class="p-2 rounded-lg text-slate-400 hover:text-slate-600"><List class="w-5 h-5" /></button>
+          </div>
+          
+          <button class="bg-white border border-slate-200 rounded-xl px-5 py-3 text-sm font-bold text-slate-900 flex items-center gap-3">
+            Ordenar por: Más Vendidos
+            <ChevronDown class="w-4 h-4 text-slate-400" />
+          </button>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-12">
+        <!-- Sidebar -->
+        <div class="w-full lg:w-72 flex-shrink-0">
+          <FilterSidebar client:load />
+        </div>
+
+        <!-- Grid -->
+        <div class="flex-1">
+          <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+            {products.map((product) => (
+              <ProductCard client:visible product={product} />
+            ))}
+          </div>
+
+          <!-- Pagination -->
+          <div class="mt-20 flex items-center justify-center gap-2">
+            <button class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:border-emerald-500 hover:text-emerald-600 transition-all">1</button>
+            <button class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-bold shadow-lg shadow-emerald-500/20">2</button>
+            <button class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:border-emerald-500 hover:text-emerald-600 transition-all">3</button>
+            <div class="px-2 text-slate-300 font-bold">...</div>
+            <button class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:border-emerald-500 hover:text-emerald-600 transition-all">10</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</MainLayout>

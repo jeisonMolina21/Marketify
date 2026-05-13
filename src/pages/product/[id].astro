@@ -1,0 +1,154 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer.astro';
+import ProductCard from '../../components/ProductCard';
+import { ShoppingCart, Star, Heart, Share2, ShieldCheck, Truck, RotateCcw } from 'lucide-react';
+
+export function getStaticPaths() {
+  return [
+    { params: { id: '1' } },
+    { params: { id: '2' } },
+    { params: { id: '3' } },
+    { params: { id: '4' } },
+  ];
+}
+
+const { id } = Astro.params;
+
+// Mock product data
+const product = {
+  id,
+  name: id === '1' ? 'Reloj Chronos Luxury Edition' : id === '2' ? 'Audífonos Sonic Max Wireless' : 'Producto Premium',
+  price: id === '1' ? 1250000 : id === '2' ? 850000 : 500000,
+  image: id === '1' ? '/images/watch.png' : id === '2' ? '/images/headphones.png' : 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=2000&auto=format&fit=crop',
+  category: id === '1' ? 'Accesorios' : 'Tecnología',
+  description: 'Diseño vanguardista con materiales de la más alta calidad. Este producto representa la cumbre de la ingeniería moderna y el estilo sofisticado.',
+  features: ['Resistente al agua', 'Garantía de 2 años', 'Envío prioritario'],
+  colors: ['bg-slate-900', 'bg-slate-400', 'bg-emerald-600'],
+  sizes: ['S', 'M', 'L', 'XL']
+};
+
+const relatedProducts = [
+  { id: '3', name: 'Gafas de Sol Polaris Black', price: 450000, image: 'https://images.unsplash.com/photo-1511499767390-a7335958beba?q=80&w=2000&auto=format&fit=crop', category: 'Moda', rating: 5, reviews: 45 },
+  { id: '4', name: 'Mochila Urbana Tech Pro', price: 320000, image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=2000&auto=format&fit=crop', category: 'Estilo de Vida', rating: 4, reviews: 67 },
+];
+---
+
+<MainLayout title={product.name}>
+  <Navbar client:load slot="header" />
+
+  <section class="pt-32 pb-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <!-- Gallery -->
+        <div class="space-y-6">
+          <div class="aspect-square rounded-[3rem] overflow-hidden bg-slate-50 border border-slate-100 group relative">
+            <img src={product.image} alt={product.name} class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <div class="absolute top-8 right-8 flex flex-col gap-3">
+              <button class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-md shadow-xl flex items-center justify-center text-slate-400 hover:text-red-500 transition-all">
+                <Heart class="w-6 h-6" />
+              </button>
+              <button class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-md shadow-xl flex items-center justify-center text-slate-400 hover:text-emerald-600 transition-all">
+                <Share2 class="w-6 h-6" />
+              </button>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-4 gap-4">
+            {[1, 2, 3, 4].map(() => (
+              <div class="aspect-square rounded-2xl bg-slate-50 border border-slate-100 overflow-hidden cursor-pointer hover:border-emerald-500 transition-all">
+                <img src={product.image} class="w-full h-full object-cover opacity-50 hover:opacity-100" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="flex flex-col">
+          <div class="mb-8">
+            <span class="text-xs font-black text-emerald-600 uppercase tracking-[0.3em] bg-emerald-50 px-3 py-1 rounded-md mb-4 inline-block">
+              {product.category}
+            </span>
+            <h1 class="text-5xl font-black text-slate-900 tracking-tighter leading-none mb-4">{product.name}</h1>
+            <div class="flex items-center gap-4">
+              <div class="flex items-center gap-1 text-orange-400">
+                {[...Array(5)].map(() => <Star class="w-4 h-4 fill-current" />)}
+              </div>
+              <span class="text-sm font-bold text-slate-400">4.9 (124 reseñas)</span>
+            </div>
+          </div>
+
+          <p class="text-4xl font-black text-slate-900 tracking-tighter mb-8">
+            ${product.price.toLocaleString('es-CO')}
+          </p>
+
+          <p class="text-slate-500 leading-relaxed mb-10 text-lg">
+            {product.description}
+          </p>
+
+          <!-- Variants -->
+          <div class="space-y-8 mb-10">
+            <div>
+              <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Color</h4>
+              <div class="flex gap-3">
+                {product.colors.map((color) => (
+                  <button class={`w-10 h-10 rounded-full ${color} border-4 border-white ring-2 ring-transparent hover:ring-slate-200 transition-all shadow-sm`}></button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Talla</h4>
+              <div class="flex gap-3">
+                {product.sizes.map((size) => (
+                  <button class="w-14 h-14 rounded-xl border border-slate-200 flex items-center justify-center font-bold text-slate-600 hover:border-emerald-500 hover:text-emerald-600 hover:bg-emerald-50 transition-all">
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="flex flex-col sm:flex-row gap-4 mb-12">
+            <button class="btn-primary-marketify flex-1 py-5 text-xl shadow-2xl shadow-emerald-500/20">
+              <ShoppingCart class="w-6 h-6" />
+              Añadir al Carrito
+            </button>
+          </div>
+
+          <!-- Trust Indicators -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-10 border-t border-slate-100">
+            <div class="flex items-center gap-3">
+              <Truck class="w-5 h-5 text-emerald-500" />
+              <span class="text-xs font-bold text-slate-600">Envío Gratis</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <ShieldCheck class="w-5 h-5 text-emerald-500" />
+              <span class="text-xs font-bold text-slate-600">Garantía 2 años</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <RotateCcw class="w-5 h-5 text-emerald-500" />
+              <span class="text-xs font-bold text-slate-600">Devolución Fácil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-black text-slate-900 tracking-tight mb-12">Productos Relacionados</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {relatedProducts.map((p) => (
+          <ProductCard client:visible product={p as any} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</MainLayout>

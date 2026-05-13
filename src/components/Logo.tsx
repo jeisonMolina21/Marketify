@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Logo = ({ className = "w-8 h-8" }) => (
   <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,5 +47,4 @@ const Logo = ({ className = "w-8 h-8" }) => (
   </svg>
 );
 
-import { motion } from 'framer-motion';
 export default Logo;

@@ -1,0 +1,88 @@
+---
+import { Github, Twitter, Instagram, Facebook, MapPin, Mail, Phone } from 'lucide-react';
+import Logo from './Logo';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-white border-t border-slate-100 pt-20 pb-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <!-- Brand Section -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3">
+          <Logo className="w-10 h-10" />
+          <span class="text-2xl font-black text-slate-900 tracking-tighter">Marketify</span>
+        </div>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          La plataforma líder en Colombia para el comercio electrónico de nueva generación. Calidad garantizada y soporte 24/7.
+        </p>
+        <div class="flex items-center gap-4">
+          {['facebook', 'instagram', 'twitter', 'github'].map((social) => (
+            <a href="#" class="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-emerald-500 hover:text-white transition-all">
+               <span class="sr-only">{social}</span>
+               {social === 'facebook' && <Facebook class="w-5 h-5" />}
+               {social === 'instagram' && <Instagram class="w-5 h-5" />}
+               {social === 'twitter' && <Twitter class="w-5 h-5" />}
+               {social === 'github' && <Github class="w-5 h-5" />}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-sm font-black text-slate-900 uppercase tracking-widest mb-6">Comprar</h4>
+        <ul class="space-y-4">
+          {['Nuevos Productos', 'Más Vendidos', 'Ofertas Flash', 'Categorías', 'Soporte'].map((link) => (
+            <li>
+              <a href="#" class="text-slate-500 hover:text-emerald-600 text-sm font-medium transition-colors">{link}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Info -->
+      <div>
+        <h4 class="text-sm font-black text-slate-900 uppercase tracking-widest mb-6">Empresa</h4>
+        <ul class="space-y-4">
+          {['Sobre Nosotros', 'Términos y Condiciones', 'Privacidad', 'Facturación DIAN', 'Blog'].map((link) => (
+            <li>
+              <a href="#" class="text-slate-500 hover:text-emerald-600 text-sm font-medium transition-colors">{link}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="text-sm font-black text-slate-900 uppercase tracking-widest mb-6">Contacto</h4>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3 text-sm text-slate-500">
+            <MapPin class="w-5 h-5 text-emerald-500 shrink-0" />
+            Bogotá, Colombia - Calle 100 #15-32
+          </li>
+          <li class="flex items-center gap-3 text-sm text-slate-500">
+            <Mail class="w-5 h-5 text-emerald-500 shrink-0" />
+            hola@marketify.com.co
+          </li>
+          <li class="flex items-center gap-3 text-sm text-slate-500">
+            <Phone class="w-5 h-5 text-emerald-500 shrink-0" />
+            +57 (601) 123 4567
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">
+        &copy; {currentYear} Marketify SAS. Todos los derechos reservados.
+      </p>
+      <div class="flex items-center gap-6">
+        <img src="https://vtex.com/wp-content/uploads/2022/02/visa-logo.png" alt="Visa" class="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" class="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" />
+        <img src="https://ps.w.org/payment-gateways-for-payu-latam/assets/icon-256x256.png?rev=2384661" alt="PayU" class="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" />
+      </div>
+    </div>
+  </div>
+</footer>

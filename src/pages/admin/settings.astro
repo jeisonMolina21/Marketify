@@ -1,0 +1,50 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { Settings as SettingsIcon, Shield, CreditCard, Bell, Globe, Save } from 'lucide-react';
+
+const sections = [
+  { label: 'Perfil de la Tienda', icon: Globe, desc: 'Nombre, moneda, zona horaria y dominio.' },
+  { label: 'Seguridad', icon: Shield, desc: 'Autenticación de dos pasos y permisos.' },
+  { label: 'Métodos de Pago', icon: CreditCard, desc: 'Pasarelas de pago, PSE, PayU y más.' },
+  { label: 'Notificaciones', icon: Bell, desc: 'Alertas de stock y correos transaccionales.' },
+];
+---
+
+<AdminLayout title="Configuración">
+  <div class="max-w-4xl space-y-10">
+    <div>
+      <h1 class="text-4xl font-black text-slate-900 tracking-tight mb-2">Configuración</h1>
+      <p class="text-slate-500 font-medium">Personaliza el funcionamiento global de tu plataforma.</p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6">
+      {sections.map((s) => (
+        <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all cursor-pointer group">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-6">
+              <div class="w-16 h-16 rounded-2xl bg-slate-50 text-slate-400 group-hover:bg-emerald-500 group-hover:text-white transition-all flex items-center justify-center">
+                <s.icon class="w-8 h-8" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-slate-900 mb-1">{s.label}</h3>
+                <p class="text-sm text-slate-500">{s.desc}</p>
+              </div>
+            </div>
+            <button class="text-emerald-600 font-bold text-sm">Gestionar</button>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-emerald-900 p-8 rounded-[2.5rem] text-white flex items-center justify-between shadow-2xl shadow-emerald-950/20">
+      <div>
+        <h3 class="text-xl font-bold mb-1">Guardar cambios globales</h3>
+        <p class="text-emerald-300 text-sm font-medium">Asegúrate de revisar todos los ajustes antes de aplicar.</p>
+      </div>
+      <button class="bg-white text-emerald-900 px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-emerald-50 transition-all">
+        <Save class="w-5 h-5" />
+        Guardar Todo
+      </button>
+    </div>
+  </div>
+</AdminLayout>
