@@ -4,9 +4,7 @@ Este es el entregable de maquetación de la interfaz gráfica para el proyecto *
 
 ## 👥 Autores
 - Jeison Molina
-- Julieth Peña
 - Johanna Osorio
-- Juliana Lizarazo López
 
 ## 📅 Fecha
 21 de marzo de 2026
