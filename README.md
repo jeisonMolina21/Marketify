@@ -33,12 +33,4 @@ Para acceder al **Panel del Comerciante**, utiliza las siguientes credenciales:
    - Catálogo de productos con categorías y búsqueda.
    - Sistema de carrito de compras deslizable.
    - Simulación de proceso de pago (Checkout).
-
-## ♿ Accesibilidad y Usabilidad
-- Cumplimiento de estándares **WCAG 2.1 AA**.
-- Contraste de color optimizado.
-- Navegación por teclado amigable.
-- Diseño "Mobile First" y totalmente responsivo.
-
----
 **Nota:** Este proyecto es un prototipo funcional de maquetación. Las interacciones son simuladas mediante el estado de React y no requieren una base de datos real para la demostración.
