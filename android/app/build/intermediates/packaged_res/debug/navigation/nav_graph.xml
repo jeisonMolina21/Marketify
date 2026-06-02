@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_catalog">
+
+    <!-- Catalog / Home Fragment -->
+    <fragment
+        android:id="@+id/navigation_catalog"
+        android:name="com.marketify.app.ui.catalog.CatalogFragment"
+        android:label="Catálogo"
+        tools:layout="@layout/fragment_catalog">
+        <action
+            android:id="@+id/action_catalog_to_detail"
+            app:destination="@id/navigation_product_detail"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+
+    <!-- Product Detail Fragment -->
+    <fragment
+        android:id="@+id/navigation_product_detail"
+        android:name="com.marketify.app.ui.detail.ProductDetailFragment"
+        android:label="Detalle de Producto"
+        tools:layout="@layout/fragment_product_detail">
+        <argument
+            android:name="productId"
+            app:argType="string" />
+    </fragment>
+
+    <!-- Cart Fragment -->
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="com.marketify.app.ui.cart.CartFragment"
+        android:label="Carrito"
+        tools:layout="@layout/fragment_cart">
+        <action
+            android:id="@+id/action_cart_to_checkout"
+            app:destination="@id/navigation_checkout"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+
+    <!-- Checkout Fragment -->
+    <fragment
+        android:id="@+id/navigation_checkout"
+        android:name="com.marketify.app.ui.checkout.CheckoutFragment"
+        android:label="Checkout"
+        tools:layout="@layout/fragment_checkout" />
+
+    <!-- Auth Fragment -->
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.marketify.app.ui.auth.AuthFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_auth" />
+
+    <!-- Admin Fragment -->
+    <fragment
+        android:id="@+id/navigation_admin"
+        android:name="com.marketify.app.ui.admin.AdminFragment"
+        android:label="Admin"
+        tools:layout="@layout/fragment_admin" />
+
+</navigation>

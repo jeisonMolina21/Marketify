@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Marketify</string>
+    <string name="app_subtitle">Colombia Store</string>
+    
+    <!-- Navigation Labels -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_catalog">Catálogo</string>
+    <string name="nav_cart">Carrito</string>
+    <string name="nav_profile">Perfil</string>
+    <string name="nav_admin">Admin</string>
+    
+    <!-- Home / Hero Screen -->
+    <string name="hero_badge">Nuevas Colecciones 2026</string>
+    <string name="hero_title_1">Descubre el</string>
+    <string name="hero_title_2">Futuro del Shopping</string>
+    <string name="hero_subtitle">Experiencia premium, envíos rápidos en toda Colombia y facturación electrónica instantánea. Tu estilo, a un click.</string>
+    <string name="btn_explore">Explorar Catálogo</string>
+    <string name="btn_offers">Ver Ofertas</string>
+    <string name="stats_clients_count">50k+</string>
+    <string name="stats_clients_label">Clientes Felices</string>
+    <string name="stats_products_count">12k+</string>
+    <string name="stats_products_label">Productos</string>
+    <string name="stats_delivery_count">24h</string>
+    <string name="stats_delivery_label">Envío Express</string>
+    
+    <string name="section_categories">Comprar por Categoría</string>
+    <string name="section_categories_desc">Explora nuestra selección curada de productos de alta gama.</string>
+    <string name="section_featured">Productos Destacados</string>
+    <string name="section_featured_desc">Lo más top de esta semana. Elegido por expertos, amado por nuestra comunidad.</string>
+    
+    <string name="view_all">Ver todas</string>
+    <string name="in_stock">En Stock</string>
+    <string name="out_of_stock">Sin Stock</string>
+    <string name="add_to_cart">Añadir al Carrito</string>
+    
+    <!-- Trust Indicators -->
+    <string name="trust_delivery_title">Envíos Rápidos</string>
+    <string name="trust_delivery_desc">Gratis por compras superiores a $200.000</string>
+    <string name="trust_secure_title">Compra Segura</string>
+    <string name="trust_secure_desc">Pasarela de pagos encriptada 256-bit</string>
+    <string name="trust_warranty_title">Garantía Total</string>
+    <string name="trust_warranty_desc">30 días para devoluciones sin costo</string>
+
+    <!-- Detail Screen -->
+    <string name="detail_color_label">Color</string>
+    <string name="detail_size_label">Talla</string>
+    <string name="detail_related_title">Productos Relacionados</string>
+    <string name="detail_shipping_free">Envío Gratis</string>
+    <string name="detail_warranty_years">Garantía 2 años</string>
+    <string name="detail_returns_easy">Devolución Fácil</string>
+    
+    <!-- Cart Screen -->
+    <string name="cart_title">Carrito de Compras</string>
+    <string name="cart_empty">Tu carrito está vacío</string>
+    <string name="cart_subtotal">Subtotal</string>
+    <string name="cart_shipping">Envío</string>
+    <string name="cart_shipping_free">Gratis</string>
+    <string name="cart_taxes">Impuestos (IVA 19%)</string>
+    <string name="cart_total">Total a Pagar</string>
+    <string name="btn_checkout">Proceder al Checkout</string>
+    <string name="cart_dian_notice">Se enviará la factura electrónica DIAN al correo proporcionado tras confirmar el pago.</string>
+
+    <!-- Checkout Screen -->
+    <string name="checkout_title">Finalizar Compra</string>
+    <string name="checkout_step_shipping">Envío</string>
+    <string name="checkout_step_billing">Factura DIAN</string>
+    <string name="checkout_step_payment">Pago</string>
+    <string name="checkout_shipping_title">Información de Envío</string>
+    <string name="checkout_label_email">Correo Electrónico</string>
+    <string name="checkout_label_phone">Teléfono</string>
+    <string name="checkout_label_name">Nombre</string>
+    <string name="checkout_label_lastname">Apellido</string>
+    <string name="checkout_label_address">Dirección de Entrega</string>
+    <string name="checkout_label_department">Departamento</string>
+    <string name="checkout_label_city">Ciudad</string>
+    <string name="btn_continue_billing">Continuar a Facturación</string>
+    
+    <string name="checkout_billing_title">Facturación Electrónica</string>
+    <string name="checkout_billing_subtitle">Requisito DIAN</string>
+    <string name="checkout_invoice_check">¿Requiere factura electrónica con datos fiscales?</string>
+    <string name="checkout_invoice_desc">Obligatorio para deducción de impuestos en Colombia.</string>
+    <string name="checkout_label_id_type">Tipo de Documento</string>
+    <string name="checkout_label_id_number">Número de Identificación</string>
+    <string name="checkout_label_business_name">Razón Social / Nombre Fiscal</string>
+    <string name="btn_continue_payment">Continuar al Pago</string>
+    <string name="btn_back">Volver</string>
+    
+    <string name="checkout_payment_title">Método de Pago</string>
+    <string name="checkout_payment_secure_title">Pago 100% Seguro</string>
+    <string name="checkout_payment_secure_desc">Tus datos están protegidos por encriptación SSL.</string>
+    <string name="btn_place_order">Confirmar y Pagar</string>
+    <string name="order_success">¡Pedido realizado con éxito!</string>
+    
+    <!-- Auth Screen -->
+    <string name="auth_title">Acceso Portal</string>
+    <string name="auth_subtitle">Identifícate para gestionar tu tienda o ver tus pedidos.</string>
+    <string name="auth_label_email">Usuario / Correo</string>
+    <string name="auth_label_password">Contraseña</string>
+    <string name="auth_btn_login">Iniciar Sesión</string>
+    <string name="auth_btn_register">Registrarse</string>
+    <string name="auth_demo_notice">Credenciales Demo Comerciante:\ndemo@marketify.com / admin123</string>
+    <string name="auth_error_credentials">Credenciales inválidas para administrador</string>
+    
+    <!-- Admin Screen -->
+    <string name="admin_title">Panel de Control</string>
+    <string name="admin_subtitle">Bienvenido de nuevo, Comerciante.</string>
+    <string name="admin_metrics_title">Métricas de Hoy</string>
+    <string name="admin_sales">Ventas Totales</string>
+    <string name="admin_orders">Nuevas Órdenes</string>
+    <string name="admin_clients">Nuevos Clientes</string>
+    <string name="admin_dian_count">Facturas DIAN</string>
+    <string name="admin_recent_orders">Órdenes Recientes</string>
+    <string name="admin_inventory">Inventario de Productos</string>
+    <string name="admin_btn_new_product">Nuevo Producto</string>
+    <string name="admin_sales_channel">Ventas por Canal</string>
+    <string name="admin_channel_online">Tienda Online (75%)</string>
+    <string name="admin_channel_marketplace">Marketplace (15%)</string>
+    <string name="admin_channel_whatsapp">WhatsApp (10%)</string>
+    
+    <!-- Filter Sidebar -->
+    <string name="filter_title">Filtros</string>
+    <string name="filter_category">Categoría</string>
+    <string name="filter_price_range">Rango de Precio</string>
+    <string name="filter_min_price">Mínimo</string>
+    <string name="filter_max_price">Máximo</string>
+    <string name="filter_btn_apply">Aplicar Filtros</string>
+    <string name="filter_btn_clear">Limpiar</string>
+    
+    <string name="search_placeholder">Buscar productos...</string>
+    <string name="order_by_label">Ordenar por: Más Vendidos</string>
+</resources>

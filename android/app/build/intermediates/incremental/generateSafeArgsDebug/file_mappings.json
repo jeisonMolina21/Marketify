@@ -1,0 +1,1 @@
+[{"navFile":"src\\main\\res\\navigation\\nav_graph.xml","javaFiles":["com.marketify.app.ui.catalog.CatalogFragmentDirections","com.marketify.app.ui.detail.ProductDetailFragmentArgs","com.marketify.app.ui.cart.CartFragmentDirections"]}]
